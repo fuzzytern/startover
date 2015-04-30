@@ -1,0 +1,14 @@
+{
+  "name": "Gift Economy Foundation",
+  "version": "0.0.0",
+  "description": "Showcase website for the Gift Economy Foundation",
+  "repository": {
+    "type": "git",
+    "url": "?"
+  },
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "run-sequence": "^1.0.2",
+    "del": "^1.1.1"
+  }
+}
