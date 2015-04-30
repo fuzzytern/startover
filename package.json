@@ -1,5 +1,5 @@
 {
-  "name": "Gift Economy Foundation",
+  "name": "gef",
   "version": "0.0.0",
   "description": "Showcase website for the Gift Economy Foundation",
   "repository": {
@@ -7,8 +7,11 @@
     "url": "?"
   },
   "dependencies": {
+    "browser-sync": "^2.6.9",
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
-    "run-sequence": "^1.0.2",
-    "del": "^1.1.1"
+    "gulp-gh-pages": "^0.5.1",
+    "gulp-sass": "^1.3.3",
+    "run-sequence": "^1.1.0"
   }
 }
