@@ -6,14 +6,12 @@
 
 //- Configuration variables.
 var config = {
-	port: 8888,
-	host: 'localhost',
   paths: {
     source: './app',
     public: './public',
-    sass: "./app/**/*.{sass,scss}",
-    html: "./app/**/*.html",
-    images: './app/images',
+    sass: './app/**/*.{sass,scss}',
+    html: './app/**/*.html',
+    images: './app/images/**/*.{png,jpg,gif,svg}',
   },
 };
 
@@ -28,6 +26,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var ghPages = require('gulp-gh-pages');
+var watch = require('gulp-watch');
 var browserSync = require('browser-sync').create();
 
 
@@ -35,23 +34,17 @@ var browserSync = require('browser-sync').create();
  *                    TASKS
  *************************************************/
 
-gulp.task('default', ['build:development']);
 
-gulp.task('build:development', function() {
-  runSequence('clean', 'build', 'server');
-});
-
-gulp.task('clean', function (cb) {
-  del([
-    config.paths.public,
-  ], cb);
+gulp.task('build:development', function(callback) {
+  runSequence('clean', 'build', ['watch', 'server'], callback);
 });
 
 gulp.task('build', ['html', 'sass']);
 
-gulp.task('deploy', function() {
-  return gulp.src(config.paths.public + '/**/*')
-    .pipe(ghPages());
+gulp.task('clean', function (callback) {
+  del([
+    config.paths.public,
+  ], callback);
 });
 
 gulp.task('html', function(){
@@ -68,6 +61,16 @@ gulp.task('sass', function(){
     .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('watch', ['browserSync'], function() {
+  watch(config.paths.sass, function() { gulp.start('sass'); });
+  watch(config.paths.html, function() { gulp.start('html'); });
+});
+
+gulp.task('deploy', function() {
+  return gulp.src(config.paths.public + '/**/*')
+    .pipe(ghPages());
+});
+
 gulp.task('server', function() {
   browserSync.init({
     server: {
@@ -75,3 +78,5 @@ gulp.task('server', function() {
     }
   });
 });
+
+gulp.task('default', ['build:development']);
