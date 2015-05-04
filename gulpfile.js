@@ -61,7 +61,7 @@ gulp.task('sass', function(){
     .pipe(browserSync.reload({stream:true}));
 });
 
-gulp.task('watch', ['browserSync'], function() {
+gulp.task('watch', ['server'], function() {
   watch(config.paths.sass, function() { gulp.start('sass'); });
   watch(config.paths.html, function() { gulp.start('html'); });
 });
