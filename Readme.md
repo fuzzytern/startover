@@ -1,7 +1,7 @@
-|- app/
-|- public/
-|  |- index.html
-|--|- assets/
-      |- css/
-      |- images/
-      |- js/
+    |- app/
+    |- public/
+       |- index.html
+       |- assets/
+          |- css/
+          |- images/
+          |- js/
