@@ -6,6 +6,13 @@
 @import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
+//- Variables
+$splash-background: #f02;
+$footer-background: #444;
+$text-color-main: #222;
+$text-color-inverted: #fff;
+$text-color-links: #666;
+
 //- Boilerplate classes
 .bp-flex-container {
   display: flex;
@@ -14,25 +21,49 @@
   flex-direction: column;
 }
 
+//- Reset & site-wide styles
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  color: $text-color-links;
+  text-decoration: none;
+  &:hover {
+    color: $text-color-main;
+  }
+}
+section, footer {
+  padding: 3vh;
+}
+
 //- Content
 html {
   height: 100%;
-}
-body {
-  background-color: #F90;
-  color: white;
-  font-family: Abel, Arial;
-  font-size: 18px;
-  height: 100%;
-}
-.logo {
-  font-family: 'Waiting for the Sunrise', cursive;
-  font-size: 3em;
-}
-.splash {
-  @extend .bp-flex-container;
-  height: 100%;
-  h2 {
-    opacity: .9;
+  body {
+    color: $text-color-main;
+    font-family: Abel, Arial;
+    font-size: 18px;
+    height: 100%;
+    .splash {
+      @extend .bp-flex-container;
+      color: $text-color-inverted;
+      background-color: $splash-background;
+      height: 100%;
+      h2 {
+        opacity: .9;
+      }
+      .logo {
+        font-family: 'Waiting for the Sunrise', cursive;
+        font-size: 3em;
+      }
+    }
+    footer {
+      color: $text-color-inverted;
+      background-color: $footer-background;
+      > p {
+        opacity: .9;
+      }
+    }
   }
 }
