@@ -17,13 +17,16 @@ var config = {
 
 var site = require('./package.json'); // store package.json data in site variable
 
+
 /*************************************************
  *               INITIALISATION
  *************************************************/
+
 //- Load Node modules
 var gulp = require('gulp');
 var del = require('del');
 var runSequence = require('run-sequence');
+var flatten = require('gulp-flatten');
 var sass = require('gulp-sass');
 var ghPages = require('gulp-gh-pages');
 var watch = require('gulp-watch');
@@ -33,7 +36,6 @@ var browserSync = require('browser-sync').create();
 /*************************************************
  *                    TASKS
  *************************************************/
-
 
 gulp.task('build:development', function(callback) {
   runSequence('clean', 'build', ['watch', 'server'], callback);
@@ -48,8 +50,8 @@ gulp.task('clean', function (callback) {
 });
 
 gulp.task('html', function(){
-
   return gulp.src(config.paths.html)
+    .pipe(flatten())
     .pipe(gulp.dest(config.paths.public))
     .pipe(browserSync.reload({stream:true}));
 });
@@ -57,6 +59,7 @@ gulp.task('html', function(){
 gulp.task('sass', function(){
 	return gulp.src(config.paths.sass)
 		.pipe(sass())
+    .pipe(flatten())
 		.pipe(gulp.dest(config.paths.public + '/css'))
     .pipe(browserSync.reload({stream:true}));
 });
