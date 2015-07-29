@@ -1,10 +1,13 @@
-## Folder structure
+## Project structure
 
     |- app/
       |- core
         |- core.html
         |- core.scss
         |- core.coffee
+        |- images
+          |- logo.svg
+          |- splash-background.jpg
         |- partials
           |- _base.scss
           |- _layout.scss
@@ -14,6 +17,7 @@
         |- <module>.html
         |- <module>.scss
         |- <module>.coffee
+        |- <image1>.svg
         |- partials
           |- _base.scss
           |- _layout.scss
@@ -25,3 +29,5 @@
           |- css/
           |- images/
           |- js/
+    |- package.json
+    |- Readme.md
