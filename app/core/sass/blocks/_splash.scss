@@ -1,0 +1,24 @@
+/**
+ * This is style for a specific block (BEM terminology).
+ * A style module doesn't know anything about its parents. It has responsibility for positioning containers for its children.
+ * Note: A block is sometimes referred as a style "module", not to be confused with application modules.
+ */
+
+//- Tools for use within this module
+%flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.splash {
+  @extend %flex-container;
+  height: 100%;
+
+  background-color: $splash-background;
+  color: $text-color-inverted;
+  .splash__moto {
+    opacity: .9;
+  }
+}

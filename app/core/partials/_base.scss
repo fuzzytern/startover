@@ -1,0 +1,22 @@
+/**
+ * This _base.scss file contains all the style for base HTML elements. It overrides and extend some browser defaults.
+ * It also defines some variables, placeholders and mixins of use throughout the entire app
+ * This is a convenient place to copy/paste and customize [normalize.css](https://necolas.github.io/normalize.css/)
+ */
+
+//- Site-wide styles
+body {
+  color: $text-color-main;
+  font-family: Abel, Arial;
+  font-size: 18px;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  color: $text-color-links;
+  text-decoration: none;
+}
+section, footer {
+  padding: 3vh;
+}

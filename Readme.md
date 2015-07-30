@@ -21,6 +21,7 @@
           |- _base.scss              // Overrides the core modules base styles /!\ Takes effect across the whole app /!\
           |- _blocks.scss
           |- _shame.scss
+        |- package.json              // A module may have it's own package.json to be published to http://npmjs.org
     |- public/                       // Processed output to be served in the production environment.
       |- index.html
       |- assets/
