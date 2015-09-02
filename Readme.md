@@ -36,6 +36,6 @@
 
 * Distinction between `blocks` (located in `app/core/sass/_blocks.scss` or as separate files in `app/core/sass/blocks/`) and application `modules` (full folder directly under `app`):
     * A block is styling for a set of a specific part of the User Interface  
-    * A module represent everything needed for a specific part of the User Interface to function independently (Html, Javascripts in additions to Stylesheets)
+    * A module (or component) represent everything needed for a specific part of the User Interface to function independently (Html, Javascripts in additions to Stylesheets)
 
 Styling might begin as a block for the `core` module and end up as part as its own specific module with other relevant files.
